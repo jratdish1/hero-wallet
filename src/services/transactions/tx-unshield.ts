@@ -302,7 +302,8 @@ async function extractTokenOwnerFromTransferEvents(
 async function getTokenOwnerWithFallback(
   receipt: TransactionReceipt,
   transaction: TransactionResponse,
-  railgunContractAddress: string
+  railgunContractAddress: string,
+  networkName: NetworkName
 ): Promise<string> {
   try {
     // first attempt is try to extract from Transfer events
@@ -310,6 +311,17 @@ async function getTokenOwnerWithFallback(
       receipt,
       railgunContractAddress
     );
+
+    const normalizedTokenOwner = tokenOwner.toLowerCase()
+    const normalizedRelayAdaptAddresses = [
+      NETWORK_CONFIG[networkName].relayAdaptContract.toLowerCase(),
+      ...NETWORK_CONFIG[networkName].relayAdaptHistory.map(a=>a.toLowerCase())
+    ]
+
+    if(normalizedRelayAdaptAddresses.includes(normalizedTokenOwner)){
+      return transaction.from;
+    }
+
     return tokenOwner;
   } catch (error) {
     return transaction.from;
@@ -359,7 +371,8 @@ export const getERC20AndNFTAmountRecipientsForUnshieldToOrigin = async (
   const recipientAddress = await getTokenOwnerWithFallback(
     receipt,
     transaction,
-    railgunContractAddress
+    railgunContractAddress,
+    networkName
   );
   const erc20Amounts = getSerializedERC20Balances(balances);
   const nftAmounts = getSerializedNFTBalances(balances);
