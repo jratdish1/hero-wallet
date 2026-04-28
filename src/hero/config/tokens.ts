@@ -177,15 +177,17 @@ export const PLS_PULSECHAIN: HeroToken = {
 
 /**
  * $HERO Token — Base
- * HERO token on Base L2.
- * NOTE: Contract address TBD — awaiting Base deployment
+ * HERO Token for Veterans on Base L2.
+ * Source: basescan.org/token/0x00fa69ed03d3337085a6a87b691e8a02d04eb5f8
+ * Contract: Verified (Solidity v0.8.26, MIT license)
+ * Features: ERC20Votes, Buy-and-Burn, Auto-LP, Fee Decay
+ * Supply: 100,000,000 HERO
  */
 export const HERO_BASE: HeroToken = {
   name: 'HERO',
   symbol: 'HERO',
   decimals: 18,
-  // TODO: Replace with actual Base deployment address
-  address: '0x0000000000000000000000000000000000000000',
+  address: '0x00fa69ed03d3337085a6a87b691e8a02d04eb5f8',
   chainId: 8453,
   isNative: false,
   isCommunityToken: false,

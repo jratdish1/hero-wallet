@@ -37,7 +37,17 @@
 - [x] Generate First Responder image (Police, Fire, Medical)
 - [x] Add HERO Wallet quick-access button to Mining Ops sidebar
 
-## Phase 5: Deployment & Hardening (Next)
+## Phase 5: Deployment & Hardening (Current)
+- [x] Full test suite expanded to 133/133 tests ✅ (2026-04-28)
+- [x] Complete security strategy document (7-layer defense-in-depth) ✅ (2026-04-28)
+- [x] Full security audit report (0 Critical, 0 High, 3 Medium) ✅ (2026-04-28)
+- [x] Replace $HERO Base placeholder with real CA: 0x00fa69ed03d3337085a6a87b691e8a02d04eb5f8 ✅ (2026-04-28)
+- [x] Research AmbireTech (EIP-7702 wallet, cross-chain architecture) ✅ (2026-04-28)
+- [x] Research LibertySwap/ZKX Wallet (direct competitor analysis) ✅ (2026-04-28)
+- [x] Create BETA disclaimer document ✅ (2026-04-28)
+- [x] Create explainer video storyboard/plan ✅ (2026-04-28)
+
+## Phase 5b: Deployment & Hardening (Blocked — Awaiting VDS S)
 - [ ] Receive VDS S confirmation and label "HERO Wallet VDS S"
 - [ ] Execute Server Hardening SOP on new VDS
 - [ ] Set up wallet.herobase.io subdomain (DNS + Nginx)
@@ -45,34 +55,63 @@
 - [x] Build HERO Guardian Agent (autonomous security monitor) ✅ (2026-04-28, code ready)
 - [ ] Deploy HERO Guardian Agent to VDS (awaiting VDS S provisioning)
 - [x] Wire up Railgun engine integration in HeroWallet.initialize() ✅ (2026-04-28)
-- [ ] Deploy/bridge RAILGUN contracts on PulseChain & Base (BLOCKED: Railgun not on PulseChain/Base — using bridge-to-privacy strategy)
+- [ ] Deploy/bridge RAILGUN contracts on PulseChain & Base (BLOCKED: using bridge-to-privacy strategy)
 
 ## Phase 6: Testing & QA
-- [x] Write unit tests for all modules ✅ (2026-04-28, 56/56 passing)
+- [x] Write unit tests for all modules ✅ (2026-04-28, 133/133 passing)
 - [ ] $5 test transaction on testnet per SOP
 - [ ] End-to-end claim flow test (rewards → auto-swap → wallet load)
 - [ ] Security penetration test
+- [ ] External pen test (quarterly schedule)
 
 ## Phase 7: Mobile & Extensions
 - [ ] Build React Native mobile wrapper (iOS + Android)
 - [ ] TestFlight onboarding for iOS beta
 - [ ] Android APK distribution
-- [ ] Chrome browser extension (HERO Wallet Web3 Extension)
+- [ ] Chrome browser extension (HERO Wallet Web3 Extension) — Reference: ZKX Wallet (15 MiB, Manifest V3)
 - [ ] Firefox browser extension
 - [ ] Edge browser extension
 - [ ] Extension features: connect to dApps, sign transactions, quick swap, balance view
+- [ ] Study AmbireTech extension build pipeline (webpack, LavaMoat security)
+- [ ] Evaluate React Native Web hybrid approach (single codebase for extension + mobile)
+- [ ] Chrome Web Store developer account ($5 one-time)
+- [ ] 5 promotional screenshots for store listing
 
 ## Phase 8: Cross-Chain & Finalization
 - [ ] Cross-chain swap aggregation (all popular chains)
 - [ ] Bridge integration (PulseChain ↔ Base ↔ Ethereum ↔ Arbitrum ↔ etc.)
+- [ ] Evaluate AmbireTech ambire-common pattern for shared cross-chain logic
+- [ ] LibertySwap/Bridge2Pulse integration for PulseChain bridging
 - [ ] Final Codex audit on complete codebase
 - [ ] Generate HERO Wallet Whitepaper (auto-trigger when finalized)
 - [ ] Publish to Chrome Web Store, Firefox Add-ons, Edge Add-ons
 
+## Phase 9: Marketing & Launch
+- [ ] Produce HERO Wallet explainer video (see docs/VIDEO_EXPLAINER_PLAN.md)
+- [ ] Generate reference images for video (HERO soldier logo, UI mockups)
+- [ ] Generate video clips (8 clips, 45-60s total)
+- [ ] Distribute video: Telegram, X/Twitter, herobase.io, YouTube
+- [ ] BETA launch announcement with disclaimer
+- [ ] Community beta testing program (Telegram group)
+
+## Competitive Intelligence
+- **ZKX Wallet** (by LibertySwap): LIVE on Chrome Web Store as of 2026-04-28
+  - Features: Shield/Unshield, Swap & Bridge, PulseChain + EVM, Non-Custodial, Open Source
+  - 9 users, 0 ratings (just launched same day)
+  - Our advantages: Gamification, Buy-and-Burn, Guardian Agent, Community loyalty
+- **AmbireTech**: EIP-7702 smart wallet, 222 stars, GPL-3.0
+  - Useful patterns: ambire-common submodule, LavaMoat security, hybrid RN/Web
+  - NOT a direct competitor (different ecosystem)
+
 ## Reminders
-- Whitepaper auto-generates when all placeholder addresses are replaced
+- $HERO Base CA: 0x00fa69ed03d3337085a6a87b691e8a02d04eb5f8 (VERIFIED on BaseScan)
+- $HERO PulseChain CA: 0x35a51Dfc82032682E4Bda8AAcA87B9Bc386C3D27
+- $VETS PulseChain CA: 0x4013abBf94A745EfA7cc848989Ee83424A770060
+- Whitepaper auto-generates when all placeholder addresses are replaced (✅ ALL REPLACED)
 - Every code change requires Codex audit before GitHub push (SOP)
 - Dedicated server: Contabo Cloud VDS S ($49.22/mo, US-East, 3 cores, 24GB RAM, 180GB NVMe)
 - Browser extension roadmap: Chrome → Firefox → Edge (Manifest V3)
 - HERO logo (attached by user) is the primary branding for all platforms
 - First Responder image available for community/charity section of wallet
+- BETA disclaimer: docs/BETA_DISCLAIMER.md (ready for deployment)
+- Video plan: docs/VIDEO_EXPLAINER_PLAN.md (ready for production)
