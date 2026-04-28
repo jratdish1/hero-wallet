@@ -207,3 +207,41 @@ export type {
   ServiceHealth,
   AnomalyReport,
 } from './security/watchdog';
+
+// ============================================================
+// Privacy Engine (Railgun ZK Integration)
+// ============================================================
+export {
+  HeroPrivacyEngine,
+  createPrivacyEngine,
+  hasNativePrivacy,
+  getPrivacyBridgeTarget,
+  RAILGUN_SUPPORTED_CHAINS,
+  HERO_DIRECT_CHAINS,
+  PrivacyMode,
+  EngineStatus,
+} from './privacy/railgun-engine';
+export type {
+  RailgunEngineConfig,
+  WalletCreationResult,
+  PrivateTransferParams,
+  PrivateTransactionResult,
+  RailgunChainName,
+  DirectChainName,
+  AllChainName,
+} from './privacy/railgun-engine';
+
+// ============================================================
+// Guardian Agent (Autonomous Security Monitor)
+// ============================================================
+export {
+  HeroGuardianAgent,
+  createGuardianAgent,
+  ThreatLevel,
+  MonitorTarget,
+} from './security/guardian-agent';
+export type {
+  GuardianConfig,
+  AnomalyDetection,
+  GuardianHealthReport,
+} from './security/guardian-agent';
