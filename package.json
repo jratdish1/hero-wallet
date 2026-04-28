@@ -1,6 +1,6 @@
 {
   "name": "@hero-ecosystem/hero-wallet",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "HERO Wallet — ZK privacy wallet for PulseChain & Base, built on Railgun SDK. Supports $HERO and $VETS tokens with zero-knowledge shielded transfers.",
   "main": "dist/index.js",
   "license": "MIT",

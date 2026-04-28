@@ -1,31 +1,50 @@
 /**
- * HERO Wallet Module — v0.2.0
+ * HERO Wallet Module — v0.3.0
  *
  * Exports all HERO-specific configurations, tokens, wallet functionality,
- * rewards, gamification, multi-chain support, integrations, notifications,
- * and security systems.
- * 
+ * rewards (70/20/5/5 split), gamification, multi-chain support, integrations,
+ * notifications, and security systems.
+ *
+ * Fee Structure:
+ *   70% → HERO Treasury (charities)
+ *   20% → Rewards Pool (user claims)
+ *    5% → Wallet Overhead (infrastructure)
+ *    5% → Buy & Burn ($HERO deflationary)
+ *
  * @security CODEX-AUDIT-REQUIRED
  */
 
 // ============================================================
-// Chain Configurations (Original)
+// Chain Configurations
 // ============================================================
 export { PULSECHAIN_CONFIG, PULSECHAIN_TESTNET_CONFIG } from './config/pulsechain';
 export { BASE_CONFIG, BASE_SEPOLIA_CONFIG } from './config/base';
 
 // ============================================================
-// Token Definitions
+// Token Definitions (All Community Tokens Hardcoded)
 // ============================================================
 export {
   HERO_PULSECHAIN,
   HERO_BASE,
   VETS_PULSECHAIN,
+  TRUFARM_PULSECHAIN,
+  EMIT_PULSECHAIN,
+  RHINOFI_PULSECHAIN,
+  YEP_PULSECHAIN,
+  WPLS_PULSECHAIN,
+  HEX_PULSECHAIN,
+  WETH_PULSECHAIN,
+  PLS_PULSECHAIN,
+  ETH_BASE,
   HERO_TOKENS,
+  COMMUNITY_TOKENS,
   ZERO_ADDRESS,
+  NATIVE_TOKEN_ADDRESS,
   isTokenConfigured,
+  isNativeToken,
   getHeroTokensByChain,
   getHeroToken,
+  getTokenByAddress,
 } from './config/tokens';
 export type { HeroToken } from './config/tokens';
 
@@ -42,7 +61,7 @@ export type {
 } from './wallet/hero-wallet';
 
 // ============================================================
-// Rewards System
+// Rewards System (70/20/5/5 Split + Buy & Burn + NFT Discount)
 // ============================================================
 export {
   HeroRewardsEngine,
@@ -50,12 +69,46 @@ export {
   DEFAULT_REWARD_CONFIG,
   HERO_TREASURY_ADDRESS,
   REWARDS_POOL_ADDRESS,
+  WALLET_OVERHEAD_ADDRESS,
+  BUY_AND_BURN_ADDRESS,
+  HERO_NFT_CONTRACT_ADDRESS,
 } from './rewards/rewards-engine';
 export type {
   RewardConfig,
   RewardDistribution,
   UserRewardPreference,
+  ClaimableRewards,
+  ClaimResult,
+  BuyAndBurnEvent,
 } from './rewards/rewards-engine';
+
+// ============================================================
+// Claim Handler (Backend API for Reward Claims)
+// ============================================================
+export {
+  HeroClaimHandler,
+  ClaimAPI,
+} from './rewards/claim-handler';
+export type {
+  SwapQuote as ClaimSwapQuote,
+  SwapRoute as ClaimSwapRoute,
+  ClaimRequest,
+  ClaimStatus,
+} from './rewards/claim-handler';
+
+// ============================================================
+// Auto-Swap Router (Multi-DEX Routing)
+// ============================================================
+export {
+  HeroAutoSwapRouter,
+  SupportedDex,
+} from './rewards/auto-swap-router';
+export type {
+  SwapParams,
+  SwapResult,
+  RouteStep,
+  DexQuote,
+} from './rewards/auto-swap-router';
 
 // ============================================================
 // Gamification & Rank System
