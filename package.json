@@ -1,7 +1,7 @@
 {
-  "name": "@railgun-community/wallet",
-  "version": "10.8.6",
-  "description": "RAILGUN Wallet SDK, compatible with mobile, browser and nodejs environments.",
+  "name": "@hero-ecosystem/hero-wallet",
+  "version": "0.1.0",
+  "description": "HERO Wallet — ZK privacy wallet for PulseChain & Base, built on Railgun SDK. Supports $HERO and $VETS tokens with zero-knowledge shielded transfers.",
   "main": "dist/index.js",
   "license": "MIT",
   "files": [
@@ -32,11 +32,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Railgun-Community/wallet.git"
+    "url": "git+https://github.com/jratdish1/hero-wallet.git"
   },
-  "homepage": "https://github.com/Railgun-Community/wallet#readme",
+  "homepage": "https://github.com/jratdish1/hero-wallet#readme",
   "bugs": {
-    "url": "https://github.com/Railgun-Community/wallet/issues"
+    "url": "https://github.com/jratdish1/hero-wallet/issues"
   },
   "dependencies": {
     "@graphql-mesh/cache-localforage": "^0.7.20",
