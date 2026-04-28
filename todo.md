@@ -42,12 +42,13 @@
 - [ ] Execute Server Hardening SOP on new VDS
 - [ ] Set up wallet.herobase.io subdomain (DNS + Nginx)
 - [ ] Deploy wallet backend API on dedicated VDS
-- [ ] Deploy HERO Guardian Agent (autonomous security monitor)
-- [ ] Wire up Railgun engine integration in HeroWallet.initialize()
-- [ ] Deploy/bridge RAILGUN contracts on PulseChain & Base
+- [x] Build HERO Guardian Agent (autonomous security monitor) ✅ (2026-04-28, code ready)
+- [ ] Deploy HERO Guardian Agent to VDS (awaiting VDS S provisioning)
+- [x] Wire up Railgun engine integration in HeroWallet.initialize() ✅ (2026-04-28)
+- [ ] Deploy/bridge RAILGUN contracts on PulseChain & Base (BLOCKED: Railgun not on PulseChain/Base — using bridge-to-privacy strategy)
 
 ## Phase 6: Testing & QA
-- [ ] Write unit tests for all modules
+- [x] Write unit tests for all modules ✅ (2026-04-28, 56/56 passing)
 - [ ] $5 test transaction on testnet per SOP
 - [ ] End-to-end claim flow test (rewards → auto-swap → wallet load)
 - [ ] Security penetration test
