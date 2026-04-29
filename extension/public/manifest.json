@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "HERO Wallet — Privacy-First Web3",
+  "short_name": "HERO Wallet",
+  "version": "0.1.0",
+  "description": "Privacy-first crypto wallet for PulseChain, Base & Ethereum. Shield/Unshield tokens with zero-knowledge proofs. Built by veterans, for everyone.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://*.herobase.io/*",
+    "https://*.pulsechain.com/*",
+    "https://*.base.org/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/hero-16.png",
+      "32": "icons/hero-32.png",
+      "48": "icons/hero-48.png",
+      "128": "icons/hero-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/hero-16.png",
+    "32": "icons/hero-32.png",
+    "48": "icons/hero-48.png",
+    "128": "icons/hero-128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["inpage.js"],
+      "matches": ["https://*/*"]
+    }
+  ]
+}

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=360, initial-scale=1.0" />
+  <title>HERO Wallet</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 360px;
+      min-height: 600px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0a0e17;
+      color: #e0e6ed;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #0d1220 0%, #111827 100%);
+      border-bottom: 1px solid rgba(0, 255, 100, 0.15);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-logo img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+    }
+
+    .header-logo span {
+      font-weight: 700;
+      font-size: 16px;
+      background: linear-gradient(90deg, #00ff64, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .chain-selector {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 12px;
+      color: #a0aec0;
+      transition: all 0.2s;
+    }
+
+    .chain-selector:hover {
+      border-color: #00ff64;
+      color: #00ff64;
+    }
+
+    .chain-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00ff64;
+    }
+
+    /* Balance Card */
+    .balance-card {
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    .balance-label {
+      font-size: 12px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .balance-amount {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #00ff64, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+    }
+
+    .balance-usd {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    /* Privacy Toggle */
+    .privacy-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 8px 16px;
+      margin: 0 16px;
+      background: rgba(0, 255, 100, 0.05);
+      border: 1px solid rgba(0, 255, 100, 0.15);
+      border-radius: 12px;
+    }
+
+    .privacy-bar .shield-icon {
+      font-size: 16px;
+    }
+
+    .privacy-bar .status {
+      font-size: 12px;
+      font-weight: 600;
+      color: #00ff64;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .privacy-toggle {
+      width: 40px;
+      height: 22px;
+      background: #1e293b;
+      border-radius: 11px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .privacy-toggle.active {
+      background: #00ff64;
+    }
+
+    .privacy-toggle::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+    }
+
+    .privacy-toggle.active::after {
+      transform: translateX(18px);
+    }
+
+    /* Action Buttons */
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 20px 16px;
+    }
+
+    .action-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .action-btn .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .action-btn.send .icon { background: rgba(0, 255, 100, 0.15); }
+    .action-btn.receive .icon { background: rgba(0, 212, 255, 0.15); }
+    .action-btn.swap .icon { background: rgba(255, 165, 0, 0.15); }
+    .action-btn.bridge .icon { background: rgba(138, 43, 226, 0.15); }
+
+    .action-btn .label {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* Token List */
+    .token-list {
+      padding: 0 16px;
+    }
+
+    .token-list-header {
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 12px 0 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .token-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .token-item:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .token-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .token-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .token-name {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .token-chain {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .token-right {
+      text-align: right;
+    }
+
+    .token-balance {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .token-value {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    /* XP Bar */
+    .xp-bar {
+      margin: 12px 16px;
+      padding: 10px 14px;
+      background: rgba(255, 165, 0, 0.05);
+      border: 1px solid rgba(255, 165, 0, 0.15);
+      border-radius: 10px;
+    }
+
+    .xp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .xp-rank {
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffa500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .xp-amount {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .xp-progress {
+      height: 4px;
+      background: #1e293b;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .xp-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ffa500, #ff6b00);
+      border-radius: 2px;
+      width: 35%;
+      transition: width 0.5s;
+    }
+
+    /* Lock Screen */
+    .lock-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 600px;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .lock-screen img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 24px;
+    }
+
+    .lock-screen h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, #00ff64, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lock-screen p {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    .lock-screen input {
+      width: 100%;
+      padding: 12px 16px;
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: #e0e6ed;
+      font-size: 14px;
+      margin-bottom: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .lock-screen input:focus {
+      border-color: #00ff64;
+    }
+
+    .lock-screen button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #00ff64, #00d4ff);
+      border: none;
+      border-radius: 10px;
+      color: #0a0e17;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .lock-screen button:hover {
+      opacity: 0.9;
+    }
+
+    /* Beta Badge */
+    .beta-badge {
+      position: fixed;
+      top: 8px;
+      right: 8px;
+      padding: 2px 8px;
+      background: rgba(255, 165, 0, 0.2);
+      border: 1px solid rgba(255, 165, 0, 0.4);
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 700;
+      color: #ffa500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <div class="beta-badge">BETA</div>
+  <div id="app"></div>
+</body>
+</html>
