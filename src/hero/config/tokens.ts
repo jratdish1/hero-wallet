@@ -265,21 +265,11 @@ export const ETH_BASE: HeroToken = {
 
 export const PULSECHAIN_LP_PAIRS: readonly LPPair[] = [
   {
-    name: 'HERO/TruFarm LP',
+    name: 'HERO/WPLS LP',
     token0: 'HERO',
-    token1: 'TRUFARM',
-    lpAddress: '0x1F7FA931F4D1789c44f4a7Adc4564DE45ed96DF5',
-    dex: 'PulseX',
-    chainId: 369,
-    token0Address: '0x35a51Dfc82032682E4Bda8AAcA87B9Bc386C3D27',
-    token1Address: '0x40529F54CfF8bad0AA6d19EC8983d16e9E27B1b7',
-  },
-  {
-    name: 'HERO/PLS LP',
-    token0: 'HERO',
-    token1: 'PLS',
-    lpAddress: '0x34948e125033a697332202964de96af85becd78f',
-    dex: 'PulseX',
+    token1: 'WPLS',
+    lpAddress: '0x34948E125033a697332202964DE96Af85beCd78F', // Verified: PulseX V2 Factory getPair()
+    dex: 'PulseX V2',
     chainId: 369,
     token0Address: '0x35a51Dfc82032682E4Bda8AAcA87B9Bc386C3D27',
     token1Address: '0xA1077a294dDE1B09bB078844df40758a5D0f9a27',
@@ -288,17 +278,67 @@ export const PULSECHAIN_LP_PAIRS: readonly LPPair[] = [
     name: 'VETS/WPLS LP',
     token0: 'VETS',
     token1: 'WPLS',
-    lpAddress: '0xe2EC4E2033054b778a2a56B7B3EB70f89944F5e6',
-    dex: 'PulseX',
+    lpAddress: '0xe2EC4E2033054b778a2a56B7B3EB70f89944F5e6', // Verified: PulseX V2 Factory getPair()
+    dex: 'PulseX V2',
     chainId: 369,
     token0Address: '0x4013abBf94A745EfA7cc848989Ee83424A770060',
     token1Address: '0xA1077a294dDE1B09bB078844df40758a5D0f9a27',
   },
   {
+    name: 'HERO/VETS LP',
+    token0: 'HERO',
+    token1: 'VETS',
+    lpAddress: '0x3bb750564df56f9589af250cb9d0c4bf9a1d0d53', // Verified: PulseX V2 Factory getPair()
+    dex: 'PulseX V2',
+    chainId: 369,
+    token0Address: '0x35a51Dfc82032682E4Bda8AAcA87B9Bc386C3D27',
+    token1Address: '0x4013abBf94A745EfA7cc848989Ee83424A770060',
+  },
+  {
+    name: 'HERO/PLSX LP',
+    token0: 'HERO',
+    token1: 'PLSX',
+    lpAddress: '0xcc04c1c8bf3bfc686b9a64a8505f84934067366e', // Verified: PulseX V2 Factory getPair()
+    dex: 'PulseX V2',
+    chainId: 369,
+    token0Address: '0x35a51Dfc82032682E4Bda8AAcA87B9Bc386C3D27',
+    token1Address: '0x95B303987A60C71504D99Aa1b13B4DA07b0790ab',
+  },
+  {
+    name: 'HERO/HEX LP',
+    token0: 'HERO',
+    token1: 'HEX',
+    lpAddress: '0xa1fc4dae111d82db1b5893b70251c2da72530b0c', // Verified: PulseX V2 Factory getPair()
+    dex: 'PulseX V2',
+    chainId: 369,
+    token0Address: '0x35a51Dfc82032682E4Bda8AAcA87B9Bc386C3D27',
+    token1Address: '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39',
+  },
+  {
+    name: 'VETS/PLSX LP',
+    token0: 'VETS',
+    token1: 'PLSX',
+    lpAddress: '0x9adebb05cca1f38851c61ca2ff19c27bed1fa785', // Verified: PulseX V2 Factory getPair()
+    dex: 'PulseX V2',
+    chainId: 369,
+    token0Address: '0x4013abBf94A745EfA7cc848989Ee83424A770060',
+    token1Address: '0x95B303987A60C71504D99Aa1b13B4DA07b0790ab',
+  },
+  {
+    name: 'HERO/TruFarm LP',
+    token0: 'HERO',
+    token1: 'TRUFARM',
+    lpAddress: '0x1F7FA931F4D1789c44f4a7Adc4564DE45ed96DF5', // From herobase.io staking page
+    dex: 'PulseX',
+    chainId: 369,
+    token0Address: '0x35a51Dfc82032682E4Bda8AAcA87B9Bc386C3D27',
+    token1Address: '0x40529F54CfF8bad0AA6d19EC8983d16e9E27B1b7',
+  },
+  {
     name: 'HERO/EMIT LP',
     token0: 'HERO',
     token1: 'EMIT',
-    lpAddress: '0x15D38573d2feeb82e7ad5187aB8c1D52810B1f07',
+    lpAddress: '0x15D38573d2feeb82e7ad5187aB8c1D52810B1f07', // From herobase.io staking page
     dex: 'PulseX',
     chainId: 369,
     token0Address: '0x35a51Dfc82032682E4Bda8AAcA87B9Bc386C3D27',
@@ -312,10 +352,20 @@ export const PULSECHAIN_LP_PAIRS: readonly LPPair[] = [
 
 export const BASE_LP_PAIRS: readonly LPPair[] = [
   {
+    name: 'HERO/WETH (Uniswap V2)',
+    token0: 'HERO',
+    token1: 'WETH',
+    lpAddress: '0x3Bb159de8604ab7E0148EDC24F2A568c430476CF', // Verified: UniV2 Factory getPair()
+    dex: 'Uniswap V2',
+    chainId: 8453,
+    token0Address: '0x00Fa69ED03d3337085A6A87B691E8a02d04Eb5f8',
+    token1Address: '0x4200000000000000000000000000000000000006',
+  },
+  {
     name: 'HERO/WETH (Aerodrome)',
     token0: 'HERO',
     token1: 'WETH',
-    lpAddress: '0x26Eb84fbE7EA1a9E65C3473DEe73D0E96dd033F6',
+    lpAddress: '0xb813599dd596C179C8888C8A4Bd3FEC8308D1E20', // Verified: on-chain eth_getCode
     dex: 'Aerodrome',
     chainId: 8453,
     token0Address: '0x00Fa69ED03d3337085A6A87B691E8a02d04Eb5f8',
@@ -325,7 +375,7 @@ export const BASE_LP_PAIRS: readonly LPPair[] = [
     name: 'HERO/WETH (Uniswap V3)',
     token0: 'HERO',
     token1: 'WETH',
-    lpAddress: '0x50F88fe97f72CD3E75b9Eb4f747F59BcEBA80d59',
+    lpAddress: '0x50F88fe97f72CD3E75b9Eb4f747F59BcEBA80d59', // From herobase.io JS bundle
     dex: 'Uniswap V3',
     chainId: 8453,
     token0Address: '0x00Fa69ED03d3337085A6A87B691E8a02d04Eb5f8',
@@ -335,7 +385,7 @@ export const BASE_LP_PAIRS: readonly LPPair[] = [
     name: 'HERO/USDC (Aerodrome)',
     token0: 'HERO',
     token1: 'USDC',
-    lpAddress: '0xBE8ae24C5E4D19759f640Fb89617047213be3194',
+    lpAddress: '0xBE8ae24C5E4D19759f640Fb89617047213be3194', // From herobase.io JS bundle
     dex: 'Aerodrome',
     chainId: 8453,
     token0Address: '0x00Fa69ED03d3337085A6A87B691E8a02d04Eb5f8',
@@ -345,7 +395,7 @@ export const BASE_LP_PAIRS: readonly LPPair[] = [
     name: 'HERO/cbBTC (Aerodrome)',
     token0: 'HERO',
     token1: 'cbBTC',
-    lpAddress: '0xEEbf52397cd685878618834Cf2c7A675884D1f4B',
+    lpAddress: '0xEEbf52397cd685878618834Cf2c7A675884D1f4B', // From herobase.io JS bundle
     dex: 'Aerodrome',
     chainId: 8453,
     token0Address: '0x00Fa69ED03d3337085A6A87B691E8a02d04Eb5f8',
