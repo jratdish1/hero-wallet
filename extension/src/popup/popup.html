@@ -392,6 +392,130 @@
       letter-spacing: 1px;
       z-index: 100;
     }
+    /* ─── News Ticker ─────────────────────────────────────────────── */
+    .news-ticker {
+      border-bottom: 1px solid rgba(0, 255, 100, 0.1);
+      background: rgba(0, 255, 100, 0.02);
+    }
+    .ticker-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 12px;
+      border-bottom: 1px solid rgba(0, 255, 100, 0.06);
+    }
+    .ticker-tabs {
+      display: flex;
+      gap: 2px;
+    }
+    .ticker-tab {
+      padding: 3px 8px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #4a5568;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .ticker-tab:hover {
+      color: #00ff64;
+    }
+    .ticker-tab.active {
+      color: #00ff64;
+      border-color: rgba(0, 255, 100, 0.2);
+      background: rgba(0, 255, 100, 0.05);
+    }
+    .ticker-status {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 8px;
+      font-weight: 700;
+      color: #00ff64;
+      letter-spacing: 1px;
+    }
+    .ticker-live-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #00ff64;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .ticker-viewport {
+      overflow: hidden;
+      padding: 6px 0;
+      height: 28px;
+    }
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      will-change: transform;
+    }
+    .ticker-content {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding-right: 40px;
+    }
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0 6px;
+      font-size: 11px;
+      color: #a0aec0;
+    }
+    .ticker-symbol {
+      font-weight: 700;
+      color: #e0e6ed;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+    .ticker-price {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-weight: 600;
+      color: #00d4ff;
+      font-size: 11px;
+    }
+    .ticker-change {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 9px;
+      font-weight: 600;
+    }
+    .ticker-rank {
+      font-size: 9px;
+      color: #ffa500;
+      font-weight: 700;
+    }
+    .ticker-name {
+      font-size: 10px;
+      color: #64748b;
+    }
+    .ticker-sep {
+      color: rgba(0, 255, 100, 0.15);
+      font-size: 10px;
+      padding: 0 2px;
+    }
+    .ticker-news-dot {
+      color: #ffa500;
+      font-size: 6px;
+    }
+    .ticker-news-title {
+      font-size: 10px;
+      color: #e0e6ed;
+    }
+    .ticker-news-src {
+      font-size: 8px;
+      color: #4a5568;
+    }
   </style>
 </head>
 <body>

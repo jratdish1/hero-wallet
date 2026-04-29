@@ -10,6 +10,7 @@
 import { WalletState, ChainId, PrivacyMode, MilitaryRank, MessageType } from '../common/types';
 import { sendToBackground } from '../common/messaging';
 import { CHAINS } from '../common/chains';
+import { getTickerHTML, initTicker, destroyTicker } from './news-ticker';
 
 // ============================================================
 // State
@@ -111,6 +112,8 @@ function renderDashboard(): string {
         <span style="font-size:10px;">▼</span>
       </div>
     </div>
+
+    ${getTickerHTML()}
 
     <div class="balance-card">
       <div class="balance-label">Total Balance</div>
@@ -262,6 +265,9 @@ function bindDashboardEvents(): void {
   document.getElementById('btn-bridge')?.addEventListener('click', () => {
     alert('Bridge flow — coming in next release');
   });
+
+  // Initialize CoinGecko news ticker
+  initTicker();
 }
 
 // ============================================================
