@@ -1,7 +1,7 @@
 {
   "name": "@hero-ecosystem/hero-wallet",
   "version": "0.3.0",
-  "description": "HERO Wallet — ZK privacy wallet for PulseChain & Base, built on Railgun SDK. Supports $HERO and $VETS tokens with zero-knowledge shielded transfers.",
+  "description": "HERO Wallet \u2014 ZK privacy wallet for PulseChain & Base, built on Railgun SDK. Supports $HERO and $VETS tokens with zero-knowledge shielded transfers.",
   "main": "dist/index.js",
   "license": "MIT",
   "files": [
@@ -59,7 +59,7 @@
     "buffer": "^6.0.3",
     "crypto-browserify": "3.12.0",
     "ethereum-cryptography": "^2.0.0",
-    "ethers": "6.14.3",
+    "ethers": "^6.14.0",
     "events": "3.3.0",
     "graphql": "^16.6.0",
     "stream-browserify": "3.0.0"
@@ -98,5 +98,8 @@
   "resolutions": {
     "ethers": "6.14.3"
   },
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "yarn@1.22.22",
+  "overrides": {
+    "ws": "^8.20.1"
+  }
 }
