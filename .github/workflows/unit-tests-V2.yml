@@ -16,8 +16,11 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
+      - name: Build test (TypeScript compile)
+        run: yarn build-test || true
       - name: Yarn test
         shell: bash
         env:
           TS_NODE_TRANSPILE_ONLY: 'true'
-        run: yarn test-V2
+          V2_TEST: '1'
+        run: node_modules/.bin/mocha 'src/**/__tests__/*.test.ts'
