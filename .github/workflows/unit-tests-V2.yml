@@ -1,11 +1,9 @@
 name: Unit Tests V2
-
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
 jobs:
   unit-tests:
     name: 🧪 Test
@@ -17,7 +15,9 @@ jobs:
           node-version: '16'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --ignore-scripts
+        run: yarn install --frozen-lockfile --ignore-scripts
       - name: Yarn test
         shell: bash
+        env:
+          TS_NODE_TRANSPILE_ONLY: 'true'
         run: yarn test-V2
