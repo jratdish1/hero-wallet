@@ -79,6 +79,12 @@ describe('quick-sync-events-graph-v2', () => {
       this.skip();
       return;
     }
+    // Skipped in CI: depends on live The Graph Protocol external API.
+    // Cover with a separate scheduled/manual integration workflow on a network-enabled runner.
+    if (process.env.CI) {
+      this.skip();
+      return;
+    }
     const eventLog = await quickSyncEventsGraph(
       txidVersion,
       ETH_CHAIN,
@@ -102,6 +108,12 @@ describe('quick-sync-events-graph-v2', () => {
 
   it('[V2] Should make sure Graph V2 query has no data gaps in commitments - Polygon', async function run() {
     if (!isV2Test()) {
+      this.skip();
+      return;
+    }
+    // Skipped in CI: depends on live The Graph Protocol external API.
+    // Cover with a separate scheduled/manual integration workflow on a network-enabled runner.
+    if (process.env.CI) {
       this.skip();
       return;
     }
@@ -131,6 +143,12 @@ describe('quick-sync-events-graph-v2', () => {
       this.skip();
       return;
     }
+    // Skipped in CI: depends on live The Graph Protocol external API.
+    // Cover with a separate scheduled/manual integration workflow on a network-enabled runner.
+    if (process.env.CI) {
+      this.skip();
+      return;
+    }
 
     const eventLog = await quickSyncEventsGraph(txidVersion, BNB_CHAIN, 0);
     expect(eventLog).to.be.an('object');
@@ -151,6 +169,12 @@ describe('quick-sync-events-graph-v2', () => {
 
   it('[V2] Should make sure Graph V2 query has no data gaps in commitments - Arbitrum', async function run() {
     if (!isV2Test()) {
+      this.skip();
+      return;
+    }
+    // Skipped in CI: depends on live The Graph Protocol external API.
+    // Cover with a separate scheduled/manual integration workflow on a network-enabled runner.
+    if (process.env.CI) {
       this.skip();
       return;
     }
@@ -177,6 +201,12 @@ describe('quick-sync-events-graph-v2', () => {
       this.skip();
       return;
     }
+    // Skipped in CI: depends on live The Graph Protocol external API.
+    // Cover with a separate scheduled/manual integration workflow on a network-enabled runner.
+    if (process.env.CI) {
+      this.skip();
+      return;
+    }
 
     const eventLog = await quickSyncEventsGraph(txidVersion, SEPOLIA_CHAIN, 0);
     expect(eventLog).to.be.an('object');
@@ -197,6 +227,12 @@ describe('quick-sync-events-graph-v2', () => {
 
   it('[V2] Should run live Railgun Event Log fetch for Polygon with high starting block', async function run() {
     if (!isV2Test()) {
+      this.skip();
+      return;
+    }
+    // Skipped in CI: depends on live The Graph Protocol external API.
+    // Cover with a separate scheduled/manual integration workflow on a network-enabled runner.
+    if (process.env.CI) {
       this.skip();
       return;
     }

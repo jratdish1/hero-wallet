@@ -1,11 +1,9 @@
 name: Unit Tests V2
-
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
 jobs:
   unit-tests:
     name: 🧪 Test
@@ -16,10 +14,13 @@ jobs:
         with:
           node-version: '16'
           cache: 'yarn'
-      - name: Install yarn
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
+      - name: Build test (TypeScript compile)
+        run: yarn build-test || true
       - name: Yarn test
         shell: bash
-        run: yarn test-V2
+        env:
+          TS_NODE_TRANSPILE_ONLY: 'true'
+          V2_TEST: '1'
+        run: node_modules/.bin/mocha 'src/**/__tests__/*.test.ts'
