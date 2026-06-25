@@ -1,6 +1,28 @@
 # HERO Wallet SDK
-
 **ZK Privacy Wallet for PulseChain & Base** | Built on [Railgun SDK](https://github.com/Railgun-Community/wallet) | Open Source
+
+---
+
+> **⚠️ SAFETY FREEZE — NON-PRODUCTION (2026-06-25)**
+>
+> **DO NOT use this wallet with real funds.**
+>
+> The following critical security features are **NOT YET IMPLEMENTED**:
+>
+> | Feature | Status | File |
+> |---|---|---|
+> | Vault decryption (AES-256-GCM) | TODO | `extension/src/background/index.ts:78` |
+> | Key derivation from mnemonic (BIP-39/BIP-44) | TODO | `extension/src/background/index.ts:103` |
+> | Vault encryption (AES-256-GCM) | TODO | `extension/src/background/index.ts:104` |
+> | Encrypted vault persistence (`chrome.storage.local`) | TODO | `extension/src/background/index.ts:105` |
+>
+> Until all four items above are implemented, audited to Codex A+, and explicitly authorized by VETS:
+> - No real seed phrases or mnemonics may be used
+> - No real private keys may be loaded
+> - No real funds may be transferred
+> - No browser extension release may be published
+>
+> **Authorization required before any production use:** `APPROVE HERO-WALLET KEY-HANDLING IMPLEMENTATION PLAN`
 
 ---
 

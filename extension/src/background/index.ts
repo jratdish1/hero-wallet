@@ -5,6 +5,16 @@
  *
  * SECURITY: All private key operations happen ONLY in this service worker.
  * The popup and content scripts NEVER have access to raw keys.
+ *
+ * ⚠️  SAFETY FREEZE — NON-PRODUCTION (2026-06-25 — Codex Remediation Phase 0.3)
+ * The following key-handling features are NOT YET IMPLEMENTED (TODO stubs only):
+ *   - Vault decryption (AES-256-GCM)          — line ~78
+ *   - Key derivation from mnemonic (BIP-39/44) — line ~103
+ *   - Vault encryption (AES-256-GCM)           — line ~104
+ *   - Encrypted vault persistence              — line ~105
+ * DO NOT use with real funds, real seed phrases, or real private keys
+ * until all four items are implemented and audited to Codex A+.
+ * Authorization required: APPROVE HERO-WALLET KEY-HANDLING IMPLEMENTATION PLAN
  */
 
 import {
@@ -39,6 +49,17 @@ let guardianAlerts: GuardianAlert[] = [];
 // ============================================================
 // Initialization
 // ============================================================
+
+// ============================================================
+// Safety Freeze Runtime Guard (Phase 0.3 — 2026-06-25)
+// ============================================================
+const SAFETY_FREEZE_ACTIVE = true; // Remove only after key-handling TODOs are implemented and Codex A+ re-audit passes
+if (SAFETY_FREEZE_ACTIVE) {
+  console.error(
+    '[HERO Wallet] ⚠️  SAFETY FREEZE ACTIVE — Key-handling not implemented. ' +
+    'DO NOT use with real funds. See README for details.'
+  );
+}
 
 async function initialize(): Promise<void> {
   console.log('[HERO Wallet] Background service worker starting...');
