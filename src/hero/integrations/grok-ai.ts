@@ -64,7 +64,7 @@ export interface GrokResponse {
  */
 export const DEFAULT_GROK_CONFIG: GrokConfig = {
   apiBaseUrl: 'https://api.x.ai/v1',
-  model: 'grok-3',
+  model: 'grok-4.3',
   maxTokens: 2048,
   temperature: 0.7,
   timeoutMs: 30000,
